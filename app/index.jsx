@@ -1,10 +1,20 @@
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { router } from 'expo-router'
 
 export default function App() {
+    const goGame = () => {
+        router.push('/game')
+    }
+
     return (
         <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
+            <Text style={styles.title}>
+                2048
+            </Text>
+            <Pressable onPress={goGame} style={styles.button}>
+                <Text>Start Game</Text>
+            </Pressable>
             <StatusBar style='auto' />
         </View>
     )
@@ -13,8 +23,17 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: 'white',
+    },
+    title: {
+        fontSize: 36,
+        marginBottom: 20,
+    },
+    button: {
+        padding: 10,
+        alignItems: 'center',
+        backgroundColor: '#DDDDDD',
     },
 })
